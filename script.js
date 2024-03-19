@@ -4,8 +4,7 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random()*choices.length)];
 }
 
-function playRound(computerChoice) {
-  playerChoice = prompt("Please enter rock paper or scissors:").toLowerCase();
+function playRound(computerChoice, playerChoice) {
   if ((playerChoice === "rock" && computerChoice === "paper") || (playerChoice === "paper" && computerChoice === "scissors") || (playerChoice === "scissors" && computerChoice === "rock")) {
     return `You Lose! ${computerChoice} beats ${playerChoice}`;
   }
@@ -17,35 +16,44 @@ function playRound(computerChoice) {
   }
 }
 
-function playGame() {
-  let playerScore = 0;
-  let computerScore = 0;
+// function playGame() {
+//   let playerScore = 0;
+//   let computerScore = 0;
 
-  for (let i = 1; i < 6; i++) {
-    console.log(`Your Score: ${playerScore}`)
-    console.log(`Computer Score ${computerScore}`)
-    let result = playRound(getComputerChoice());
-    console.log(result)
+//   for (let i = 1; i < 6; i++) {
+//     console.log(`Your Score: ${playerScore}`)
+//     console.log(`Computer Score ${computerScore}`)
+//     let result = playRound(getComputerChoice());
+//     console.log(result)
 
-    if (result.includes("Win")) {
-      playerScore++;
-    }
-    else if (result.includes("Lose")) {
-      computerScore++
-    }
-    else {
-      continue;
-    }
-  }
+//     if (result.includes("Win")) {
+//       playerScore++;
+//     }
+//     else if (result.includes("Lose")) {
+//       computerScore++
+//     }
+//     else {
+//       continue;
+//     }
+//   }
 
-  if (playerScore > computerScore) {
-    return `You win the game! Computer score: ${computerScore}, Your Score: ${playerScore}`;
-  }
-  else if (playerScore === computerScore) {
-    return `It's a draw! Computer score: ${computerScore}, Your Score: ${playerScore}`
-  }
-  else {
-    return `You lose the game! Computer score: ${computerScore}, Your Score: ${playerScore}`;
-  }
+//   if (playerScore > computerScore) {
+//     return `You win the game! Computer score: ${computerScore}, Your Score: ${playerScore}`;
+//   }
+//   else if (playerScore === computerScore) {
+//     return `It's a draw! Computer score: ${computerScore}, Your Score: ${playerScore}`
+//   }
+//   else {
+//     return `You lose the game! Computer score: ${computerScore}, Your Score: ${playerScore}`;
+//   }
   
-}
+// }
+
+let buttons = document.querySelectorAll(".btn");
+
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    playRound(getComputerChoice(), button.innerText.toLowerCase())
+  })
+})
