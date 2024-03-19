@@ -16,39 +16,6 @@ function playRound(computerChoice, playerChoice) {
   }
 }
 
-// function playGame() {
-//   let playerScore = 0;
-//   let computerScore = 0;
-
-//   for (let i = 1; i < 6; i++) {
-//     console.log(`Your Score: ${playerScore}`)
-//     console.log(`Computer Score ${computerScore}`)
-//     let result = playRound(getComputerChoice());
-//     console.log(result)
-
-//     if (result.includes("Win")) {
-//       playerScore++;
-//     }
-//     else if (result.includes("Lose")) {
-//       computerScore++
-//     }
-//     else {
-//       continue;
-//     }
-//   }
-
-//   if (playerScore > computerScore) {
-//     return `You win the game! Computer score: ${computerScore}, Your Score: ${playerScore}`;
-//   }
-//   else if (playerScore === computerScore) {
-//     return `It's a draw! Computer score: ${computerScore}, Your Score: ${playerScore}`
-//   }
-//   else {
-//     return `You lose the game! Computer score: ${computerScore}, Your Score: ${playerScore}`;
-//   }
-  
-// }
-
 let buttons = document.querySelectorAll(".btn");
 let cpuScore = 0;
 let playerScore = 0;
