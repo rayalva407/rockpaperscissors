@@ -27,6 +27,7 @@ scoreDisplay.innerText = `Score: ${playerScore}`;
 
 reset.addEventListener('click', () => {
   document.querySelectorAll(".roundResult").forEach(el => el.remove())
+  buttons.forEach(btn => btn.disabled = false)
 })
 
 
@@ -50,6 +51,7 @@ buttons.forEach((button) => {
       playerScore = 0;
       cpuScore = 0;
       scoreDisplay.innerText = `Score: ${playerScore}`;
+      buttons.forEach(btn => btn.disabled = true)
       results.innerText = "Congratulations! You Win the game!"
       results.append(reset)
     }
@@ -58,8 +60,9 @@ buttons.forEach((button) => {
       playerScore = 0;
       cpuScore = 0;
       scoreDisplay.innerText = `Score: ${playerScore}`;
+      buttons.forEach(btn => btn.disabled = true)
       results.innerText = "Sorry! You lose the game. Try again! "
-      results.append
+      results.append(reset)
     }
   })
 })
