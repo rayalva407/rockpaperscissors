@@ -20,12 +20,20 @@ let buttons = document.querySelectorAll(".btn");
 let cpuScore = 0;
 let playerScore = 0;
 const scoreDisplay = document.querySelector(".score")
+const reset = document.createElement("button")
+reset.classList.add("reset")
+reset.innerText = "Reset Game"
 scoreDisplay.innerText = `Score: ${playerScore}`;
+
+reset.addEventListener('click', () => {
+  document.querySelectorAll(".roundResult").forEach(el => el.remove())
+})
 
 
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     const results = document.createElement("p");
+    results.classList.add("roundResult")
     results.innerText = playRound(getComputerChoice(), button.innerText.toLowerCase());
     const div = document.querySelector(".results");
     div.appendChild(results);
@@ -39,17 +47,19 @@ buttons.forEach((button) => {
     }
 
     if (playerScore === 5) {
-      results.innerText = "Congratulations! You Win the game!"
       playerScore = 0;
       cpuScore = 0;
       scoreDisplay.innerText = `Score: ${playerScore}`;
+      results.innerText = "Congratulations! You Win the game!"
+      results.append(reset)
     }
 
     if (cpuScore === 5) {
-      results.innerText = "Sorry! You lose the game. Try again!"
       playerScore = 0;
       cpuScore = 0;
       scoreDisplay.innerText = `Score: ${playerScore}`;
+      results.innerText = "Sorry! You lose the game. Try again! "
+      results.append
     }
   })
 })
