@@ -5,9 +5,6 @@ function getComputerChoice() {
 }
 
 function playRound(computerChoice, playerChoice) {
-  console.log(computerChoice)
-  console.log(playerChoice)
-  console.log(playerChoice.includes("scissors"))
   if ((playerChoice.includes("rock") && computerChoice.includes("paper") || playerChoice.includes("paper") && computerChoice.includes("scissors") || playerChoice.includes("scissors") && computerChoice.includes("rock"))) {
     return `You Lose. ${computerChoice} beats ${playerChoice}`;
   }
