@@ -1,11 +1,14 @@
 function getComputerChoice() {
-  choices = ["rock", "paper", "scissors"]
+  choices = ["rock ✊", "paper 👋", "scissors ✌️"]
 
   return choices[Math.floor(Math.random()*choices.length)];
 }
 
 function playRound(computerChoice, playerChoice) {
-  if ((playerChoice === "rock" && computerChoice === "paper") || (playerChoice === "paper" && computerChoice === "scissors") || (playerChoice === "scissors" && computerChoice === "rock")) {
+  console.log(computerChoice)
+  console.log(playerChoice)
+  console.log(playerChoice.includes("scissors"))
+  if ((playerChoice.includes("rock") && computerChoice.includes("paper") || playerChoice.includes("paper") && computerChoice.includes("scissors") || playerChoice.includes("scissors") && computerChoice.includes("rock"))) {
     return `You Lose. ${computerChoice} beats ${playerChoice}`;
   }
   else if (computerChoice === playerChoice) {
@@ -32,7 +35,7 @@ buttons.forEach((button) => {
     
     if (results.innerText.includes("Win")) {
        playerScore++;
-       scoreDisplay.innerText = playerScore;
+       scoreDisplay.innerText = `Score: ${playerScore}`;
     }
     if (results.innerText.includes("Lose")) {
       cpuScore++
@@ -42,14 +45,14 @@ buttons.forEach((button) => {
       results.innerText = "Congratulations! You Win the game!"
       playerScore = 0;
       cpuScore = 0;
-      scoreDisplay.innerText = playerScore;
+      scoreDisplay.innerText = `Score: ${playerScore}`;
     }
 
     if (cpuScore === 5) {
       results.innerText = "Sorry! You lose the game. Try again!"
       playerScore = 0;
       cpuScore = 0;
-      scoreDisplay.innerText = playerScore;
+      scoreDisplay.innerText = `Score: ${playerScore}`;
     }
   })
 })
